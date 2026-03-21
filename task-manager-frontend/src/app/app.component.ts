@@ -1,22 +1,17 @@
 import { Component } from '@angular/core';
 import { RouterOutlet } from '@angular/router';
-import { HTTP_INTERCEPTORS, HttpClientModule } from '@angular/common/http';
-import { AuthInterceptor } from './interceptors/auth.interceptor';
 
 @Component({
   selector: 'app-root',
   standalone: true,
-  imports: [RouterOutlet, HttpClientModule],
-  providers: [
-    {
-      provide: HTTP_INTERCEPTORS,
-      useClass: AuthInterceptor,
-      multi: true
-    }
-  ],
+  imports: [RouterOutlet],
   template: `<router-outlet></router-outlet>`,
-  styles: []
+  styles: [`
+    :host {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    }
+  `]
 })
 export class AppComponent {
-  title = 'Task Manager';
+  title = 'Task Management System';
 }
