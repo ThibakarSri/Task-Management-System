@@ -1,0 +1,256 @@
+<div class="task-form-container">
+  <div class="form-box">
+    <div class="form-header">
+      <button class="btn-back" (click)="onBack()" title="Go back to tasks">
+        ← Back
+      </button>
+      <h1>{{ isEditMode ? 'Edit Task' : 'Create New Task' }}</h1>
+    </div>
+
+    <!-- Error Message -->
+    <div class="alert alert-error" *ngIf="error">
+      {{ error }}
+    </div>
+
+    <!-- Success Message -->
+    <div class="alert alert-success" *ngIf="success">
+      {{ success }}
+    </div>
+
+    <!-- Loading State -->
+    <div class="loading" *ngIf="loading">
+      Loading...
+    </div>
+
+    <!-- Form -->
+    <form [formGroup]="taskForm" (ngSubmit)="onSubmit()" *ngIf="!loading">
+      <!-- Title Field -->
+      <div class="form-group">
+        <label for="title">Task Title</label>
+        <input
+          type="text"
+          id="title"
+          formControlName="title"
+          class="form-control"
+          [class.is-invalid]="title?.invalid && title?.touched"
+          placeholder="Enter task title"
+        />
+        <div class="error-message" *ngIf="title?.invalid && title?.touched">
+          <span *ngIf="title?.errors?.['required']">Title is required</span>
+          <span *ngIf="title?.errors?.['minlength']">Title must be at least 3 characters</span>
+        </div>
+      </div>
+
+      <!-- Description Field -->
+      <div class="form-group">
+        <label for="description">Description</label>
+        <textarea
+          id="description"
+          formControlName="description"
+          class="form-control"
+          [class.is-invalid]="description?.invalid && description?.touched"
+          placeholder="Enter task description"
+          rows="5"
+        ></textarea>
+        <div class="error-message" *ngIf="description?.invalid && description?.touched">
+          <span *ngIf="description?.errors?.['required']">Description is required</span>
+          <span *ngIf="description?.errors?.['minlength']">Description must be at least 5 characters</span>
+        </div>
+      </div>
+
+      <!-- Status Field -->
+      <div class="form-group">
+        <label for="status">Status</label>
+        <select
+          id="status"
+          formControlName="status"
+          class="form-control"
+        >
+          <option *ngFor="let option of statusOptions" [value]="option">
+            {{ option }}
+          </option>
+        </select>
+      </div>
+
+      <!-- Action Buttons -->
+      <div class="form-actions">
+        <button
+          type="submit"
+          class="btn btn-primary"
+          [disabled]="!taskForm.valid || loading"
+        >
+          {{ isEditMode ? 'Update Task' : 'Create Task' }}
+        </button>
+        <button
+          type="button"
+          class="btn btn-secondary"
+          (click)="onBack()"
+        >
+          Cancel
+        </button>
+      </div>
+    </form>
+  </div>
+</div>
+
+<style>
+  .task-form-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    background: linear-gradient(135deg, #0066ff 0%, #0099ff 100%);
+    padding: 20px;
+  }
+
+  .form-box {
+    background: white;
+    padding: 50px;
+    border-radius: 10px;
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
+    width: 100%;
+    max-width: 600px;
+    position: relative;
+  }
+
+  .form-header {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    margin-bottom: 30px;
+    position: relative;
+  }
+
+  .btn-back {
+    background-color: #6c757d;
+    color: white;
+    padding: 8px 16px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 14px;
+    font-weight: bold;
+    transition: background-color 0.3s;
+    white-space: nowrap;
+  }
+
+  .btn-back:hover {
+    background-color: #5a6268;
+  }
+
+  h1 {
+    color: #333;
+    margin: 0;
+    font-size: 28px;
+    flex: 1;
+  }
+
+  .form-group {
+    margin-bottom: 20px;
+  }
+
+  label {
+    display: block;
+    margin-bottom: 8px;
+    color: #555;
+    font-weight: 600;
+  }
+
+  .form-control {
+    width: 100%;
+    padding: 12px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    font-size: 14px;
+    font-family: inherit;
+    transition: border-color 0.3s;
+    box-sizing: border-box;
+  }
+
+  .form-control:focus {
+    outline: none;
+    border-color: #0066ff;
+    box-shadow: 0 0 5px rgba(0, 102, 255, 0.3);
+  }
+
+  .form-control.is-invalid {
+    border-color: #dc3545;
+  }
+
+  textarea.form-control {
+    resize: vertical;
+  }
+
+  .error-message {
+    color: #dc3545;
+    font-size: 12px;
+    margin-top: 5px;
+  }
+
+  .alert {
+    padding: 15px;
+    margin-bottom: 20px;
+    border-radius: 5px;
+    font-size: 14px;
+  }
+
+  .alert-error {
+    background-color: #f8d7da;
+    color: #721c24;
+    border: 1px solid #f5c6cb;
+  }
+
+  .alert-success {
+    background-color: #d4edda;
+    color: #155724;
+    border: 1px solid #c3e6cb;
+  }
+
+  .loading {
+    text-align: center;
+    padding: 40px;
+    color: #666;
+  }
+
+  .form-actions {
+    display: flex;
+    gap: 10px;
+    margin-top: 30px;
+  }
+
+  .btn {
+    flex: 1;
+    padding: 12px;
+    border: none;
+    border-radius: 5px;
+    font-size: 16px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: all 0.3s;
+  }
+
+  .btn-primary {
+    background-color: #0066ff;
+    color: white;
+  }
+
+  .btn-primary:hover:not(:disabled) {
+    background-color: #0052cc;
+    transform: translateY(-2px);
+    box-shadow: 0 5px 15px rgba(0, 102, 255, 0.4);
+  }
+
+  .btn-secondary {
+    background-color: #6c757d;
+    color: white;
+  }
+
+  .btn-secondary:hover {
+    background-color: #5a6268;
+  }
+
+  .btn:disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+  }
+</style>

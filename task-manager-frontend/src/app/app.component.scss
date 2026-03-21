@@ -1,0 +1,76 @@
+// Global app styles
+:host {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+main {
+  flex: 1;
+}
+
+.navbar {
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+
+  .navbar-brand {
+    font-size: 1.5rem;
+    transition: opacity 0.3s ease;
+
+    &:hover {
+      opacity: 0.9;
+    }
+
+    i {
+      font-size: 1.3rem;
+    }
+  }
+
+  .nav-link {
+    transition: color 0.3s ease;
+
+    &:hover {
+      color: rgba(255, 255, 255, 0.8) !important;
+    }
+
+    &.active {
+      color: #fff !important;
+      border-bottom: 2px solid #fff;
+    }
+
+    i {
+      font-size: 1.1rem;
+    }
+  }
+}
+
+footer {
+  margin-top: auto;
+  background-color: #f8f9fa;
+}
+
+// Responsive utilities
+@media (max-width: 576px) {
+  .navbar-brand {
+    font-size: 1.2rem !important;
+  }
+
+  main {
+    padding: 1rem 0.5rem !important;
+  }
+}
+
+// Animations
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.fade-in {
+  animation: fadeIn 0.3s ease-in-out;
+}

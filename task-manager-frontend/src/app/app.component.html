@@ -1,0 +1,50 @@
+<div *ngIf="isAuthenticated$ | async">
+  <nav class="navbar navbar-expand-lg navbar-dark bg-primary sticky-top shadow-sm">
+    <div class="container-fluid">
+      <a class="navbar-brand fw-bold" routerLink="/tasks">
+        <i class="bi bi-list-check me-2"></i>Task Manager
+      </a>
+      <button 
+        class="navbar-toggler" 
+        type="button" 
+        data-bs-toggle="collapse" 
+        data-bs-target="#navbarNav"
+      >
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarNav">
+        <ul class="navbar-nav ms-auto">
+          <li class="nav-item">
+            <a class="nav-link" routerLink="/tasks" routerLinkActive="active">
+              <i class="bi bi-list me-1"></i>All Tasks
+            </a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" routerLink="/create" routerLinkActive="active">
+              <i class="bi bi-plus-circle me-1"></i>Create Task
+            </a>
+          </li>
+          <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" href="javascript:void(0)" role="button" data-bs-toggle="dropdown">
+              <i class="bi bi-person-circle me-1"></i>{{ getUsername() }}
+            </a>
+            <ul class="dropdown-menu dropdown-menu-end">
+              <li>
+                <a class="dropdown-item" href="javascript:void(0)" (click)="logout()">
+                  <i class="bi bi-box-arrow-right me-2"></i>Logout
+                </a>
+              </li>
+            </ul>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+  <main class="py-4">
+    <router-outlet></router-outlet>
+  </main>
+</div>
+
+<div *ngIf="!(isAuthenticated$ | async)">
+  <router-outlet></router-outlet>
+</div>
