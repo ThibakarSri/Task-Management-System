@@ -332,7 +332,7 @@ ng serve --open
 
 ## 📞 Contact
 
-For questions or support: thibakarsri33@email.com
+For questions or support: thibakarsri33@gmail.com
 
 ---
 
@@ -345,4 +345,3 @@ For questions or support: thibakarsri33@email.com
 5. **Manage Tasks** - Create, edit, delete tasks
 6. **Logout** - Confirm and return to login
 
-**That's it! Happy task managing!** 🎉
