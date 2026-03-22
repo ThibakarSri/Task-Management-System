@@ -233,17 +233,17 @@ GET    /api/tasks/status/{status}    (Filter by status)
 
 <img width="1512" height="982" alt="Login" src="https://github.com/user-attachments/assets/5b1f947b-d356-44c7-b325-9704fa7f0cd3" />
 
-<img width="1512" height="982" alt="Register-1" src="https://github.com/user-attachments/assets/2bf8db5b-a5ba-491d-abe4-6a9f32acd600" />
-
 <img width="1512" height="982" alt="Register-2" src="https://github.com/user-attachments/assets/99aa4502-4b59-4e70-82f9-b97e9ccd720e" />
+
+<img width="1512" height="982" alt="Register-1" src="https://github.com/user-attachments/assets/2bf8db5b-a5ba-491d-abe4-6a9f32acd600" />
 
 <img width="1512" height="982" alt="Main Dashboard_1" src="https://github.com/user-attachments/assets/e436c4fe-72e6-47fa-8d6d-8ec6492c24c0" />
 
 <img width="1512" height="982" alt="Main Dashboard_2" src="https://github.com/user-attachments/assets/b3232ee0-07b4-4071-8c85-d2a852250abe" />
 
-<img width="1512" height="982" alt="Create Task-1" src="https://github.com/user-attachments/assets/f12d2365-e85b-4c89-90db-e215a3a4fb36" />
-
 <img width="1512" height="982" alt="Create Task-2" src="https://github.com/user-attachments/assets/dbc68c4f-30c4-4f51-a665-176497a476d6" />
+
+<img width="1512" height="982" alt="Create Task-1" src="https://github.com/user-attachments/assets/f12d2365-e85b-4c89-90db-e215a3a4fb36" />
 
 ---
 
