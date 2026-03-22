@@ -245,6 +245,8 @@ GET    /api/tasks/status/{status}    (Filter by status)
 
 <img width="1512" height="982" alt="Create Task-1" src="https://github.com/user-attachments/assets/f12d2365-e85b-4c89-90db-e215a3a4fb36" />
 
+<img width="1512" height="982" alt="Main dashboard-3" src="https://github.com/user-attachments/assets/9c08f833-590f-4dc0-9d79-60fce7ff763b" />
+
 ---
 
 ## 🗄️ Database Tables
